@@ -12,4 +12,4 @@
 
 ---
 
-![Image](image.png)
+![Image](image.jpg)
