@@ -1,0 +1,303 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+header {
+    background-color: #f0f0f0;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    margin: 0 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+}
+
+.image-placeholder {
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    line-height: 200px;
+    margin: 10px 0;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #333;
+}
+
+th {
+    background-color: #333;
+    color: #fff;
+    text-align: left;
+}
+
+td {
+    text-align: left;
+}
+
+.equation {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center; 
+    gap: 20px;
+}
+
+.image-wrapper {
+    text-align: center;
+}
+
+.image-wrapper img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+/* Flexbox стили для страницы алгоритмов обработки изображений */
+#image-algorithms-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#image-algorithms-page header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+}
+
+#image-algorithms-page nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#image-algorithms-page main {
+    flex: 1; /* Растягиваем основной контент */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+#image-algorithms-page .image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+#image-algorithms-page .image-wrapper img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Grid стили для страницы скользящего окна */
+#sliding-window-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#sliding-window-page header {
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#sliding-window-page nav {
+    margin-top: 10px;
+}
+
+#sliding-window-page main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+    justify-items: center;
+}
+
+#sliding-window-page .image-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+#sliding-window-page .image-wrapper {
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-items: center;
+    text-align: center;
+}
+
+#sliding-window-page .image-wrapper img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    max-width: 400px;
+}
+
+/* Анимация появления для страницы "Скользящее окно" */
+#sliding-window-page header, 
+#sliding-window-page main, 
+#sliding-window-page .image-container {
+    animation: fadeIn 1s ease-out;
+}
+
+#sliding-window-page .image-wrapper {
+    animation: scaleIn 1s ease-in-out;
+}
+
+#sliding-window-page .image-wrapper:nth-child(odd) {
+    animation-delay: 0.5s; /* Задержка для четных изображений */
+}
+
+#sliding-window-page .image-wrapper:nth-child(even) {
+    animation-delay: 1s; /* Задержка для нечетных изображений */
+}
+
+/* Ключевые кадры для плавного появления */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ключевые кадры для увеличения масштаба */
+@keyframes scaleIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Плавное затемнение ссылок при наведении */
+#sliding-window-page nav a {
+    transition: color 0.3s ease;
+}
+
+#sliding-window-page nav a:hover {
+    color: #0073e6;
+}
+
+/* Легкая пульсация для изображений при наведении */
+#sliding-window-page .image-wrapper img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sliding-window-page .image-wrapper img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили формы для страницы "Гауссовская фильтрация" */
+.filter-form {
+    display: grid;
+    gap: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.filter-form label {
+    font-weight: bold;
+}
+
+.filter-form input[type="number"],
+.filter-form input[type="file"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.filter-form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-form button:hover {
+    background-color: #005bb5;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    display: none; /* Скрываем по умолчанию */
+}
+
+.error-message.active {
+    display: block; /* Показываем, если есть ошибка */
+}
