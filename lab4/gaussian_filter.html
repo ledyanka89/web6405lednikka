@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Гауссовская фильтрация</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Гауссовская фильтрация</h1>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="filter_usage.html">Применение фильтра</a>
+        </nav>
+    </header>
+    <main>
+        <p>Гауссовская фильтрация (Gaussian filtering) — это метод сглаживания и подавления шума в цифровых изображениях или других сигналов. Он основан на использовании гауссова ядра, которое представляет собой функцию Гаусса, применяемую к каждому пикселю изображения.</p>
+        <p>Гауссова функция описывается следующим уравнением:</p>
+        <div class="equation">
+            G(x, y) = (1 / (2πσ²)) * e^(-(x² + y²) / (2σ²))
+        </div>
+        <p>Стандартное отклонение σ контролирует степень размытия. Чем больше σ, тем сильнее размытие. Малое значение σ приводит к небольшому размытию, тогда как большое значение приводит к сильному размытию и устранению деталей.</p>
+
+        <form action="/submit" method="POST" id="filter-form" class="filter-form">
+            <label for="sigma">Введите значение σ (стандартное отклонение):</label>
+            <input type="number" id="sigma" name="sigma" step="0.1" required>
+            <small class="error-message" id="sigma-error"></small>
+
+            <label for="image-upload">Загрузите изображение для фильтрации:</label>
+            <input type="file" id="image-upload" name="image" accept="image/*" required>
+            <small class="error-message" id="image-error"></small>
+
+            <button type="submit">Применить фильтр</button>
+        </form>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
